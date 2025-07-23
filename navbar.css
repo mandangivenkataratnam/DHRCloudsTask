@@ -94,7 +94,7 @@
     left: 0;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
     /* Gradient underline */
-    animation: pulseGlow 2s infinite ease-in-out;
+    animation: pulseGlow 2s infinite ease-in-out !important;
 }
 
 .navbar-nav .nav-link.active::before {
@@ -109,7 +109,7 @@
     /* Ripple particle */
     border-radius: 50%;
     opacity: 0;
-    animation: rippleParticle 2s infinite ease-in-out 0.5s;
+    animation: rippleParticle 2s infinite ease-in-out 0.5s !important;
     /* Delayed for staggered effect */
 }
 
