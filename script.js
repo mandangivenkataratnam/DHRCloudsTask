@@ -207,6 +207,7 @@ const images = [
 
  document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.forms['submit-to-google-sheet'];
+  
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -218,13 +219,13 @@ const images = [
         });
 
         if (response.ok) {
-          document.getElementById('formResponse').textContent = "Submitted successfully!";
+          document.getElementById('formResponse').textContent = "✅ Submitted successfully!";
           contactForm.reset();
         } else {
-          document.getElementById('formResponse').textContent = "Submission failed!";
+          document.getElementById('formResponse').textContent = "❌ Submission failed!";
         }
       } catch (error) {
-        document.getElementById('formResponse').textContent = "Error submitting form!";
+        document.getElementById('formResponse').textContent = "❌ Error submitting form!";
         console.error('Form Submit Error:', error);
       }
     });
