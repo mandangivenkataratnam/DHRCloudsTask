@@ -81,7 +81,7 @@
 }
 
 /* Glowing Pulse and Ripple Effect for Active Link */
-.nav-link.active {
+.navbar-nav .nav-link.active {
     color: #ff00c8 !important;
 }
 

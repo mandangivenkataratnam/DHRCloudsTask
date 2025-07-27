@@ -56,13 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
             wrap: true
         });
 
-        // Rotating Images Logic
-        const images = [
-            { src: 'assets/AboutUs-rotation-cloud.jpg', caption: 'Scalable cloud solutions for your business growth.' },
-            { src: 'assets/ui&ux-banner2.webp', caption: 'Intuitive UI/UX design for seamless user experiences.' },
-            { src: 'assets/AboutUs-rotation-digital-marketing.png', caption: 'Data-driven marketing to boost your brand.' },
-            { src: 'assets/AboutUS-rotation-dataanalytics.jpg', caption: 'Powerful analytics to drive informed decisions.' }
-        ];
+const images = [
+    { src: 'assets/AboutUs-rotation-cloud.jpg', caption: 'Scalable cloud solutions for your business growth.' },
+    { src: 'assets/AboutUs-rotation-cybersecurity.jpg', caption: 'Advanced cybersecurity for robust digital protection.' },
+    { src: 'assets/AboutUs-rotation-ai.jpg', caption: 'AI-driven innovation for transformative business solutions.' },
+    { src: 'assets/AboutUs-rotation-dataanalytics.jpg', caption: 'AI-powered analytics for intelligent decision-making.' }
+];
 
         const container = document.getElementById('rotatingContainer');
         let currentState = [
@@ -201,3 +200,40 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => particle.remove(), 10000);
         }
         setInterval(createSmokeParticle, 500);
+
+
+
+
+
+ // Contact Form Submit to Google Sheet
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.querySelector('.contact-form form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: contactForm.querySelector('[name="name"]').value,
+        email: contactForm.querySelector('[name="email"]').value,
+        projectDetails: contactForm.querySelector('[name="projectDetails"]').value,
+        services: contactForm.querySelector('[name="services"]').value
+      };
+
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxJRdcYw1Nh3K1WMlXxu9R-IbW3QOmv7tB__fd2AZ5UOB-Pk4Td-k7peVugfqVtxcw0/exec', {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        const result = await response.json();
+        document.getElementById('formResponse').textContent = "Submitted successfully!";
+        contactForm.reset();
+      } catch (error) {
+        document.getElementById('formResponse').textContent = "Error submitting form!";
+      }
+    });
+  }
+});
