@@ -205,30 +205,18 @@ const images = [
 
 
 
- // Contact Form Submit to Google Sheet
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.querySelector('.contact-form form');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const formData = {
-        name: contactForm.querySelector('[name="name"]').value,
-        email: contactForm.querySelector('[name="email"]').value,
-        projectDetails: contactForm.querySelector('[name="projectDetails"]').value,
-        services: contactForm.querySelector('[name="services"]').value
-      };
-
       try {
         const response = await fetch('https://script.google.com/macros/s/AKfycbxJRdcYw1Nh3K1WMlXxu9R-IbW3QOmv7tB__fd2AZ5UOB-Pk4Td-k7peVugfqVtxcw0/exec', {
           method: 'POST',
-          body: JSON.stringify(formData),
-          headers: {
-            'Content-Type': 'application/json'
-          }
+          body: new FormData(contactForm)
         });
 
-        const result = await response.json();
         document.getElementById('formResponse').textContent = "Submitted successfully!";
         contactForm.reset();
       } catch (error) {
