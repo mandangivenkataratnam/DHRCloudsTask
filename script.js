@@ -204,8 +204,7 @@ const images = [
 
 
 
-
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.forms['submit-to-google-sheet'];
   
   if (contactForm) {
@@ -231,3 +230,4 @@ const images = [
     });
   }
 });
+
