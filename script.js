@@ -217,10 +217,15 @@ const images = [
           body: new FormData(contactForm)
         });
 
-        document.getElementById('formResponse').textContent = "Submitted successfully!";
-        contactForm.reset();
+        if (response.ok) {
+          document.getElementById('formResponse').textContent = "Submitted successfully!";
+          contactForm.reset();
+        } else {
+          document.getElementById('formResponse').textContent = "Submission failed!";
+        }
       } catch (error) {
         document.getElementById('formResponse').textContent = "Error submitting form!";
+        console.error('Form Submit Error:', error);
       }
     });
   }
