@@ -212,7 +212,7 @@ const images = [
       e.preventDefault();
 
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxJRdcYw1Nh3K1WMlXxu9R-IbW3QOmv7tB__fd2AZ5UOB-Pk4Td-k7peVugfqVtxcw0/exec', {
+        const response = await fetch('https://script.google.com/macros/library/d/18QAljzWG5xo5glNFVixrQ4J47qFiIzZsVav1V-_rMLUhOFP2oO_HxR4h/1', {
           method: 'POST',
           body: new FormData(contactForm)
         });
