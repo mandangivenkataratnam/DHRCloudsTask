@@ -206,7 +206,7 @@ const images = [
 
 
  document.addEventListener('DOMContentLoaded', () => {
-  const contactForm = document.querySelector('.contact-form form');
+  const contactForm = document.forms['submit-to-google-sheet'];
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
