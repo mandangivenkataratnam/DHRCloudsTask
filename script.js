@@ -1,3 +1,5 @@
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx0Sbw0nInrjV6_-IhcBMhYX-yy452tgSYueiqFIb9nD_mVq4u7BIktnv5EYrOqp6nW/exec';
+
 // --------------------------------------- NAVBAR --------------------------------------------
 
         // Select all falling-letter elements
@@ -212,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbx0Sbw0nInrjV6_-IhcBMhYX-yy452tgSYueiqFIb9nD_mVq4u7BIktnv5EYrOqp6nW/exec', {
+        const response = await fetch(scriptURL, {
           method: 'POST',
           body: new FormData(contactForm)
         });
@@ -230,4 +232,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
